@@ -14,6 +14,7 @@
     <script type="text/javascript">
         const itemListURL = "https://raw.githubusercontent.com/sboigelot/tobugis-rimworld-item-list/master/StoreItems.json";
         const eventListURL = "https://raw.githubusercontent.com/sboigelot/tobugis-rimworld-item-list/master/StoreEvents.json";
+        const extListURL = "https://raw.githubusercontent.com/sboigelot/tobugis-rimworld-item-list/master/StoreExt.json";
     </script>
 </head>
 
@@ -253,6 +254,34 @@
             });
 
             eventList = new List('events', options, eventData);
+        });
+
+	let traitList = null;
+	let raceList = null;
+        $.getJSON(extListURL, function(data) {
+            var traitOptions = {
+                valueNames: ['name', 'addPrice', 'removePrice'],
+                item: '<tr><td class="name" scope="row"></td><td class="addPrice"></td><td class="removePrice"></td></tr>'
+            };
+            var traitData = [];
+            $.each(data.traits, function(index, value) {
+                if (value["canAdd"] || value["canRemove"]) {
+                    traitData.push(value);
+                }
+            });
+            traitList = new List('traits', traitOptions, traitData);
+		
+            var raceOptions = {
+                valueNames: ['name', 'price', 'description'],
+                item: '<tr><td class="name" scope="row"></td><td class="price"></td><td class="description"></td></tr>'
+            };
+            var raceData = [];
+            $.each(data.races, function(index, value) {
+                if (value["price"] > 0) {
+                    raceData.push(value);
+                }
+            });
+            raceList = new List('traits', raceOptions, raceData);
         });
 
         $("#item-price-min").keyup(function() {
