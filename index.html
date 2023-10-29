@@ -162,6 +162,47 @@
                         </div>
                     </div>
                 </div>
+		<div class="row" ng-show='selected == 3'>
+                    <div class="col-md-12">
+                        <div id="traits">
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Search</span>
+                                </div>
+                                <input type="text" class="form-control search" aria-label="Search" aria-describedby="inputGroup-sizing-sm">
+                            </div>
+                            <table class="table traits">
+                                <tr>
+                                    <th scope="col" class="sort" data-sort="abr">Name</th>
+                                    <th scope="col" class="sort" data-sort="price">Price to add</th>
+                                    <th scope="col" class="sort" data-sort="karmatype">Price to remove</th>
+                                </tr>
+                                <tbody class="list">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div><div class="row" ng-show='selected == 4'>
+                    <div class="col-md-12">
+                        <div id="races">
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Search</span>
+                                </div>
+                                <input type="text" class="form-control search" aria-label="Search" aria-describedby="inputGroup-sizing-sm">
+                            </div>
+                            <table class="table races">
+                                <tr>
+                                    <th scope="col" class="sort" data-sort="abr">Name</th>
+                                    <th scope="col" class="sort" data-sort="price">Price</th>
+                                    <th scope="col" class="sort" data-sort="karmatype">Description</th>
+                                </tr>
+                                <tbody class="list">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="container">
@@ -180,8 +221,8 @@
             <p class="float-right">
                 <a href="#">Back to top</a>
             </p>
-            <p>Album example is © Bootstrap, but please download and customize it for yourself!</p>
-            <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
+   <!--          <p>Album example is © Bootstrap, but please download and customize it for yourself!</p>
+            <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p> -->
         </div>
     </footer>
     <!-- Optional JavaScript -->
@@ -287,7 +328,7 @@
                     raceData.push(value);
                 }
             });
-            raceList = new List('traits', raceOptions, raceData);
+            raceList = new List('races', raceOptions, raceData);
         });
 
         $("#item-price-min").keyup(function() {
